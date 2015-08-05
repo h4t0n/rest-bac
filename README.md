@@ -8,7 +8,7 @@ In your project root type
 `npm install rest-bac --save`
 
 ## Usage
-To use the middleware you need an express application and a rest-bac configuration JSON. The express application should already provide a middleware or some other logic that set the ** req.user.roles ** property with an array of roles (string).
+To use the middleware you need an express application and a rest-bac configuration JSON. The express application should already provide a middleware or some other logic that set the ***req.user.roles*** property with an array of roles (string).
 
 ### JSON Configuration 
 The following configuration allow a "user" role to do GET requests to /book and all the paths under /book/* that don't match the path /book/admin/*. An "admin" role can do POST and GET requests to /book and all its descendant paths /book/*
