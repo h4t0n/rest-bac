@@ -25,10 +25,8 @@
   },
   "homepage": "https://github.com/h4t0n/rest-bac#readme",
   "devDependencies": {
-    "body-parser": "^1.13.3",
     "chai": "^3.2.0",
     "express": "^4.13.3",
-    "passport": "^0.2.2",
     "supertest": "^1.0.1"
   },
   "dependencies": {

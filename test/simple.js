@@ -3,10 +3,7 @@
 "use strict";
 
 
-var express = require('express'),
-    bodyParser = require('body-parser'),
-    passport = require('passport');
-
+var express = require('express');
 
 var request = require('supertest');
 var chai = require('chai');
@@ -17,13 +14,6 @@ chai.should();
 var rest_bac = require('../src');
 
 var app = express();
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-
-
 
 
 var config = {
