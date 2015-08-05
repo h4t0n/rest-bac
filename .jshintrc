@@ -1,0 +1,6 @@
+{
+    "node": true,
+    "proto": true,
+    "strict": true,
+    "-W004" : true
+}

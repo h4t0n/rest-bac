@@ -1,0 +1,38 @@
+{
+  "name": "rest-bac",
+  "version": "0.1.0",
+  "description": "REST based access control list middleware for expressjs",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h4t0n/rest-bac.git"
+  },
+  "keywords": [
+    "rbac",
+    "expressjs",
+    "rest"
+  ],
+  "author": "Andrea Tarquini <tarquiniandreagm@gmail.com> (@h4t0n)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/h4t0n/rest-bac/issues"
+  },
+  "homepage": "https://github.com/h4t0n/rest-bac#readme",
+  "devDependencies": {
+    "body-parser": "^1.13.3",
+    "chai": "^3.2.0",
+    "express": "^4.13.3",
+    "passport": "^0.2.2",
+    "supertest": "^1.0.1"
+  },
+  "dependencies": {
+    "debug": "^2.2.0",
+    "underscore": "^1.8.3"
+  }
+}
