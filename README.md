@@ -56,7 +56,7 @@ This code can be found at /test/server.js. You can run and test it directly with
 "use strict";
 
 var express = require('express');
-var restbac = require('../src');
+var restbac = require('rest-bac');
 
 // some code to initialize the express app and the rest-bac configurations
 var app = express();
