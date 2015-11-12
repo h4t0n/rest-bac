@@ -10,7 +10,9 @@ In your project root type
 ## Usage
 To use the middleware you need an express application and a rest-bac configuration JSON. The express application should already provide a middleware or some other logic that set the ***req.user.roles*** property with an array of roles (string).
 
-### JSON Configuration 
+**NB:** the module protect exclusively the paths specified in the REST-BAC configuration JSON. Other paths are not affected. It is a breaking changes of version 0.2.0.
+
+### JSON Configuration
 The following configuration allow a "user" role to do GET requests to /book and all the paths under /book/* that don't match the path /book/admin/*. An "admin" role can do POST and GET requests to /book and all its descendant paths /book/*
 
 ```json
@@ -19,7 +21,7 @@ The following configuration allow a "user" role to do GET requests to /book and 
     "get": ["user", "admin"],
     "post": ["admin"]
   },
-  
+
   "/book/admin/*": {
     "action": "deny",
     "get": ["user"]
@@ -42,7 +44,7 @@ var restbac = require('rest-bac');
 
 // app is the expressjs application
 // rbac-config is the JSON (parsed) object for the configuration
-// prefix-path is an optional string to be prefixed to all the paths specified in the rbac-config 
+// prefix-path is an optional string to be prefixed to all the paths specified in the rbac-config
 restbac(app, rbac-config, prefix-path)
 
 ```
@@ -62,7 +64,7 @@ var restbac = require('rest-bac');
 var app = express();
 
 // before use rest-bac the express app need to extract some roles from the request
-// and put them in the req.user.roles array 
+// and put them in the req.user.roles array
 app.use(function (req, res, next) {
     req.user = {};
     var auth = req.get('Authorization');
@@ -103,7 +105,7 @@ app.get("/api/v1/book/admin/some", function (req, res, next) {
 });
 
 
-// a simple error handler to catch authorization error 
+// a simple error handler to catch authorization error
 app.use(function (err, req, res, next) {
 
     // rest-bac authorization error propagate an Error object with a 401 status code
