@@ -1,6 +1,11 @@
 REST-bac
 =========
-A REST based access control list middleware for [Express](http://expressjs.com/) applications. This middleware allows to protect each method (GET,POST...) of any Express path (all the Express-style paths) with a set of custom roles specified in a configuration JSON.
+[![NPM Version][npm-image]][npm-url] [![Travis Build][travis-image]][travis-url]
+
+
+> A REST based access control list middleware for [Express](http://expressjs.com/) applications.
+
+This middleware allows to protect each method (GET,POST...) of any Express path (all the Express-style paths) with a set of custom roles specified in a configuration JSON.
 
 ## Install
 
@@ -177,3 +182,8 @@ Content-Length: 10
 
 admin path
 ```
+
+[npm-image]: https://img.shields.io/npm/v/rest-bac.svg
+[npm-url]: https://www.npmjs.com/package/rest-bac
+[travis-image]: https://img.shields.io/travis/h4t0n/rest-bac.svg
+[travis-url]: https://travis-ci.org/h4t0n/rest-bac
