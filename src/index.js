@@ -47,7 +47,7 @@ function protect_roles(app, config, prefix) {
 
                 app[method](prefix + path, (function (allow, conf) {
 
-                    return function (req, res, next) {
+                    return function (req, resp, next) {
 
                         running_debug("config roles: " + conf);
                         running_debug("req roles: " + req.user.roles.toString());
@@ -69,7 +69,7 @@ function protect_roles(app, config, prefix) {
                                 req.user.authorized_roles = _.difference(req.user.authorized_roles, active_roles);
                             }
                         }
-                        check_role_authorization(req, next);
+                        next();
                     };
 
                 })(allow, config_array));
@@ -83,13 +83,14 @@ function protect_roles(app, config, prefix) {
  * The middleware to check if the request contains at least one roles enabled to
  * fullfill the requesting resource
  * @param   {Object}   req  the requsest object
+ * @param   {Object} res  the response object
  * @param   {Function} next next middlware
  * @returns {Function} the next middleware or 401
  */
-function check_role_authorization(req, next) {
+function check_role_authorization(req, res, next) {
 
     if (!req.hasOwnProperty("user") || !req.user.hasOwnProperty('authorized_roles') ||
-        !(req.user.authorized_roles instanceof Array) || req.user.authorized_roles.length === 0) {
+        !(req.user.authorized_roles instanceof Array) || req.user.authorized_roles.length === 0){
 
         running_debug("Unhautorized: Invalid role or path not configured");
         var err = new Error("Unhautorized: Invalid role or path not configured");
@@ -119,5 +120,6 @@ module.exports = function (app, config, prefix) {
     if (!prefix || typeof prefix != "string") prefix = "";
 
     protect_roles(app, config, prefix);
+    app.use(prefix + "*", check_role_authorization);
 
 };

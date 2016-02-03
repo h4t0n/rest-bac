@@ -15,7 +15,7 @@ In your project root type
 ## Usage
 To use the middleware you need an express application and a rest-bac configuration JSON. The express application should already provide a middleware or some other logic that set the ***req.user.roles*** property with an array of roles (string).
 
-**NB:** the module protect exclusively the paths specified in the REST-BAC configuration JSON. Other paths are not affected. It is a breaking changes of version 0.2.0.
+**NB:** the module protect exclusively the paths specified in the REST-BAC configuration JSON. If a business logic route path doesn't have a catching rest-bac path rule you have an Unhautorized 401 response.  
 
 ### JSON Configuration
 The following configuration allow a "user" role to do GET requests to /book and all the paths under /book/* that don't match the path /book/admin/*. An "admin" role can do POST and GET requests to /book and all its descendant paths /book/*
